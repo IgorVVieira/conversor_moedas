@@ -30,6 +30,7 @@ class Conversor extends Component {
         this.simbolo();
     }
 
+    // Lembrar de atualizar para object literals
     simbolo = () => {
         let simbolo = '';
         let { moedaB } = this.props;

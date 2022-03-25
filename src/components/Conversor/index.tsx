@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import api from '../../services/api';
+
 import Button from '../Button';
 
 interface IConverterProps {
@@ -31,17 +33,13 @@ function Conversor(props: IConverterProps) {
 
     async function converter(): Promise<void> {
         let dePara = `${props.moedaA}_${props.moedaB}`;
-        let url = `https://free.currconv.com/api/v7/convert?q=${dePara}&compact=ultra&apiKey=59258cbfc3cf58697c5c`;
 
-        const response = await fetch(url, { mode: 'cors' });
-        const json = await response.json();
-
-        const cotacao = json[dePara];
+        const response = await api.get(`/convert?q=${dePara}&compact=ultra&apiKey=59258cbfc3cf58697c5c`)
 
         try {
             let newMoedaA = parseFloat(moedaA);
 
-            let moedaBValor = (newMoedaA * cotacao);
+            let moedaBValor = (newMoedaA * response.data[dePara]);
 
             if (!verificaSinal(moedaBValor)) {
             }

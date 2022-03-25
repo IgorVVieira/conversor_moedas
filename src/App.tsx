@@ -24,18 +24,18 @@ function App() {
     <StyledApp>
       <StyledH1>Conversor de Moedas</StyledH1>
       <StyledRow>
-        <Conversor moedaA="USD" moedaB="BRL"></Conversor>
-        <Conversor moedaA="BRL" moedaB="USD"></Conversor>
+        <Conversor moedaA="USD" moedaB="BRL" />
+        <Conversor moedaA="BRL" moedaB="USD" />
       </StyledRow>
 
       <StyledRow>
-        <Conversor moedaA="CAD" moedaB="BRL"></Conversor>
-        <Conversor moedaA="BRL" moedaB="CAD"></Conversor>
+        <Conversor moedaA="CAD" moedaB="BRL" />
+        <Conversor moedaA="BRL" moedaB="CAD" />
       </StyledRow>
 
       <StyledRow>
-        <Conversor moedaA="EUR" moedaB="BRL"></Conversor>
-        <Conversor moedaA="BRL" moedaB="EUR"></Conversor>
+        <Conversor moedaA="EUR" moedaB="BRL" />
+        <Conversor moedaA="BRL" moedaB="EUR" />
       </StyledRow>
     </StyledApp>
   );

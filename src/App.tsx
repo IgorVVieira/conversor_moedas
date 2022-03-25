@@ -1,29 +1,43 @@
 import React from 'react';
+import styled from "styled-components";
 
 import Conversor from './components/Conversor';
 
-import './App.css';
+const StyledH1 = styled.h1`
+    text-align: center;
+    color: aliceblue;
+`;
 
-const App = () => {
+const StyledRow = styled.div`
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-around;
+`;
+
+const StyledApp = styled.div`
+    margin: auto;
+    max-width: 900px;
+`;
+
+function App() {
   return (
-    <div className="App" >
-      <h1>Conversor de Moedas</h1>
-      <div className="linha">
+    <StyledApp>
+      <StyledH1>Conversor de Moedas</StyledH1>
+      <StyledRow>
         <Conversor moedaA="USD" moedaB="BRL"></Conversor>
         <Conversor moedaA="BRL" moedaB="USD"></Conversor>
-      </div>
+      </StyledRow>
 
-      <div className="linha">
+      <StyledRow>
         <Conversor moedaA="CAD" moedaB="BRL"></Conversor>
         <Conversor moedaA="BRL" moedaB="CAD"></Conversor>
-      </div>
+      </StyledRow>
 
-      <div className="linha">
+      <StyledRow>
         <Conversor moedaA="EUR" moedaB="BRL"></Conversor>
         <Conversor moedaA="BRL" moedaB="EUR"></Conversor>
-      </div>
-
-    </div >
+      </StyledRow>
+    </StyledApp>
   );
 }
 

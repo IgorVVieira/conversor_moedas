@@ -1,11 +1,28 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
-import './styles.css';
+import Button from '../Button';
 
 interface IConverterProps {
     moedaA: string;
     moedaB: string;
 }
+
+const StyledConversor = styled.div`
+    padding: 20px;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background: #44475a;
+    color: aliceblue;
+    border-radius: 10px;
+`;
+
+const StyledInput = styled.input`
+    background: #6272a4;
+    color: aliceblue;
+    border-radius: 12px;
+    padding: 5px;`
+    ;
 
 function Conversor(props: IConverterProps) {
     const [moedaA, setMoedaA] = useState('');
@@ -16,7 +33,7 @@ function Conversor(props: IConverterProps) {
         let dePara = `${props.moedaA}_${props.moedaB}`;
         let url = `https://free.currconv.com/api/v7/convert?q=${dePara}&compact=ultra&apiKey=59258cbfc3cf58697c5c`;
 
-        const response = await fetch(url, {mode:'cors'});
+        const response = await fetch(url, { mode: 'cors' });
         const json = await response.json();
 
         const cotacao = json[dePara];
@@ -65,12 +82,12 @@ function Conversor(props: IConverterProps) {
     }
 
     return (
-        <div className="conversor">
+        <StyledConversor>
             <h2>{props.moedaA} para {props.moedaB}</h2>
-            <input className="valor" type="number" value={moedaA} required onChange={(e) => setMoedaA((e.target.value))} />
-            <input className="botao" type="button" value="Converter" onClick={converter} />
+            <StyledInput type='number' value={moedaA} required onChange={(e) => setMoedaA((e.target.value))} />
+            <Button text='Converter' acao={converter} />
             <h2>Conversão: {simbolo} {moedaB.toFixed(2)}</h2>
-        </div>
+        </StyledConversor>
     );
 }
 
